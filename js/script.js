@@ -39,8 +39,15 @@ function showList(array) {
 document.addEventListener("DOMContentLoaded", (e) => {
   // Escribe tu solución aquí
   // Sugerencia de cómo mostrar el array => showList(strangeArray);
+  //primer manera para realizar un filtro de elementros string
+  let miArr = [];
+  for (let i = 0; i < strangeArray.length; i++) {
+    if (typeof strangeArray[i] === "string") {
+      miArr.push(strangeArray[i]);
+    }
+  }
 
-  function compararLe(case1, case2) {
+  function compararLetra(case1, case2) {
     let a = case1.toLowerCase();
     let b = case2.toLowerCase();
     if (a < b) {
@@ -51,9 +58,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       return 0;
     }
   }
+
   const filtro = strangeArray.filter(
     (elemento) => typeof elemento === "string"
   );
 
-  showList(filtro.sort(compararLe));
+  showList(filtro.sort(compararLetra));
+  showList(filtro);
 });
